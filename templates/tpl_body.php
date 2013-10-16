@@ -16,8 +16,7 @@ switch($_REQUEST['a']){
 		include($_SERVER['DOCUMENT_ROOT']."/includes/account.php");
 		break;
 	case 'logout':
-		$user = new User();
-		$user->logout();
+		session_destroy();
 		header( 'Location: https://www.aatt.me' );
 		break;
 	default:

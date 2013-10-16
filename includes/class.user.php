@@ -16,7 +16,7 @@ class User {
 
 	function login($account,$key){
     	$this->account_code = $account;
-		$this->account_key = md5($key."phoolsalt");
+		$this->account_key = md5(($key."phoolsalt"));
 
 		$query = 'select id from account where account_code="'.$this->account_code.'" AND account_key="'.$this->account_key.'"';
 		$result = $this->db->db_query_result($query);
@@ -29,7 +29,7 @@ class User {
 	}
 
 	function register($user,$pass,$email,$name){
-		$password = md5($pass."phoolsalt");
+		$password = md5(($pass."phoolsalt"));
 		$sql = "INSERT INTO account(account_code,account_key,name,email,created)VALUES('$user','$password','$name','$email',NOW())";
 		$result = $this->db->db_raw($sql);
 		if($result>0){

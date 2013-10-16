@@ -8,8 +8,8 @@
 	define("SYSLOGFACILITY",LOG_LOCAL2);
 
 	define("DBHOST","localhost");
-	define("DBNAME","aatt");
-	define("DBUSER","ttaa");
+	define("DBNAME","");
+	define("DBUSER","");
 	define("DBPASS","");
 
 ?>

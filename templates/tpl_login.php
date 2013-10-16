@@ -85,8 +85,8 @@ echo '
 </tr>
 <tr>
     <td colspan=2>
-        <button style="{width:45%}" id="login_input_submit" tabindex="4" name=cancel title="cancel" value="cancel">cancel </button>
         <button style="{width:45%}" id="login_input_submit" tabindex="3" name=sendlogin title="login" value="sendlogin">login </button>
+		<button style="{width:45%}" id="login_input_submit" tabindex="4" name=cancel title="cancel" value="cancel">cancel </button>
 	</td>
 </tr>';
 
@@ -94,7 +94,8 @@ echo '
 	$username = $_REQUEST['username'];
 	$password = $_REQUEST['password'];
 	$user = new User();
-	$_SESSION['aid'] = $user->login($username,$password);  
+	$user->login($username,$password);  
+	$_SESSION['aid'] = $user->getId();
 	header( 'Location: http://www.aatt.me' );
 
 }else if($_REQUEST['sendregister']){

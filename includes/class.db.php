@@ -36,7 +36,7 @@ class DB{
     function db_query_row($sql){
         $connect =  $this->connect();
         $result = mysql_query($sql,$connect);
-        $back =  mysql_fetch_row($result,0);
+        $back =  mysql_fetch_row($result);
         mysql_close();
         return $back;
     }
@@ -53,7 +53,7 @@ class DB{
 
     function db_query_result($sql){
         $connect = $this->connect();
-        $back = $this->db_query_row($sql,$connect);
+        $back = $this->db_query_row($sql);
         return $back[0];
     }
 
